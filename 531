@@ -1,0 +1,22 @@
+print("--- Перевірка належності дати діапазону ---")
+
+date1_str = input("Введіть першу дату (ММ.РРРР, наприклад, 12.2014): ")
+date2_str = input("Введіть другу дату (ММ.РРРР): ")
+date3_str = input("Введіть дату для перевірки (ММ.РРРР): ")
+
+month1, year1 = map(int, date1_str.split('.'))
+months1 = year1 * 12 + month1
+
+month2, year2 = map(int, date2_str.split('.'))
+months2 = year2 * 12 + month2
+
+month3, year3 = map(int, date3_str.split('.'))
+months3 = year3 * 12 + month3
+
+start_months = min(months1, months2)
+end_months = max(months1, months2)
+
+if start_months <= months3 <= end_months:
+    print("\nПовідомлення: YES")
+else:
+    print("\nПовідомлення: NO")
