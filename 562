@@ -1,0 +1,14 @@
+input_sequence = input("Введіть послідовність чисел, розділених пробілами: ")
+
+elements = input_sequence.split()
+
+original_length = len(elements)
+
+unique_set = set(elements)
+
+unique_length = len(unique_set)
+
+if original_length == unique_length:
+    print("is unique sequence")
+else:
+    print("duplicate list")
