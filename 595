@@ -1,0 +1,24 @@
+board = [['.' for _ in range(8)] for _ in range(8)]
+
+try:
+    pos = input("Введіть координату клітинки (наприклад, e2): ")
+    if len(pos) != 2 or not ('a' <= pos[0] <= 'h') or not ('1' <= pos[1] <= '8'):
+        print("Неправильний формат. Введіть координату як 'e2'.")
+        exit()
+except Exception as e:
+    print(f"Помилка вводу: {e}")
+    exit()
+
+k_col = ord(pos[0]) - ord('a')
+k_row = 8 - int(pos[1])
+
+if (k_row + k_col) % 2 != 0:
+    target_color = 'B'
+else:
+    target_color = 'W'
+
+board[k_row][k_col] = target_color
+
+print("\n--- Результат ---")
+for row in board:
+    print(' '.join(row))
