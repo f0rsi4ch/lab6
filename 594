@@ -1,0 +1,29 @@
+board = [['.' for _ in range(8)] for _ in range(8)]
+
+try:
+    pos = input("")
+    if len(pos) != 2 or not ('a' <= pos[0] <= 'h') or not ('1' <= pos[1] <= '8'):
+        print("Неправильний формат. Введіть координату як 'e4'.")
+        exit()
+except Exception as e:
+    print(f"Помилка вводу: {e}")
+    exit()
+
+k_col = ord(pos[0]) - ord('a')
+k_row = 8 - int(pos[1])
+
+board[k_row][k_col] = 'K'
+
+for dr in [-1, 0, 1]:
+    for dc in [-1, 0, 1]:
+        if dr == 0 and dc == 0:
+            continue
+
+        r = k_row + dr
+        c = k_col + dc
+
+        if 0 <= r < 8 and 0 <= c < 8:
+            board[r][c] = '*'
+
+for row in board:
+    print(' '.join(row))
