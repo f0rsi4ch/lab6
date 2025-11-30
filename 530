@@ -1,0 +1,32 @@
+import random
+
+nba_teams = [
+    "Atlanta Hawks", "Boston Celtics", "Brooklyn Nets", "Charlotte Hornets",
+    "Chicago Bulls", "Cleveland Cavaliers", "Dallas Mavericks", "Denver Nuggets",
+    "Detroit Pistons", "Golden State Warriors", "Houston Rockets", "Indiana Pacers",
+    "LA Clippers", "Los Angeles Lakers", "Memphis Grizzlies", "Miami Heat",
+    "Milwaukee Bucks", "Minnesota Timberwolves", "New Orleans Pelicans", "New York Knicks",
+    "Oklahoma City Thunder", "Orlando Magic", "Philadelphia 76ers", "Phoenix Suns",
+    "Portland Trail Blazers", "Sacramento Kings", "San Antonio Spurs", "Toronto Raptors",
+    "Utah Jazz", "Washington Wizards"
+]
+
+teams_to_use = random.sample(nba_teams, 6)
+
+nba_stats = {}
+
+for team in teams_to_use:
+    total_games = random.randint(5, 20)
+    wins = random.randint(0, total_games)
+    draws = random.randint(0, total_games - wins) 
+    losses = total_games - wins - draws
+    total_points = random.randint(30, 100) 
+    
+    nba_stats[team] = [total_games, wins, draws, losses, total_points]
+
+for team, stats in nba_stats.items():
+    
+    output_list = [team] + [str(s) for s in stats]
+    output_line = " ".join(output_list)
+    
+    print(output_line)
